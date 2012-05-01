@@ -1,0 +1,151 @@
+<html>
+<head>
+<title>Code Foo<sup>2</sup> Application</title>
+<style type="text/css">
+#head
+{
+height: 40px;
+text-align:center;
+font-size: 30px;
+}
+
+#space
+{
+height: 15px;
+background-color: #666;
+margin: 1px 0 1px 0;
+}
+
+#menu
+{
+float: left;
+width: 200px;
+height: 2025px;
+background-color: #A0A0A0;
+padding: 2px;
+}
+
+#content
+{
+margin: 0 0 0 205px;
+height: 2000px;
+background-color: #E0E0E0;
+padding: 19px 10px 10px 10px;
+}
+</style>
+<script type="text/javascript">
+function myfunction(num,form)
+{
+var inp=parseFloat(num);
+var i=0;
+var num=36;
+while (num<=inp) {num=num*36; i++;}
+var numletf=i;
+var rem=inp/Math.pow(36,numletf);
+	if (rem==1 && inp>35) 
+		{
+		var justnumf=0; 
+		var justletf=0; 
+		var totalf=inp; 
+		var excessf=0;
+		}
+	else if (rem<=10) 
+		{
+		var justnumf=1; 
+		var justletf=0; 
+		var totalf=Math.pow(36,numletf)*10; 
+		var excessf=totalf-inp;
+		}
+	else if (rem<=26)
+		{
+		var justnumf=0; 
+		var justletf=1; 
+		var totalf=Math.pow(36,numletf)*26; 
+		var excessf=totalf-inp;
+		}
+	else
+		{
+		numletf++;
+		var justnumf=0;
+		var justletf=0;
+		var totalf=Math.pow(36,(numletf));
+		var excessf=totalf-inp;
+		}
+form.numlet.value=numletf;
+form.justnum.value=justnumf;
+form.justlet.value=justletf;
+form.total.value=totalf;
+form.excess.value=excessf;
+} 
+</script>
+</head>
+
+
+<div id="head">Code Foo<sup>2</sup> Application</div>
+<div id="space"></div>
+<div id="menu"><h3>
+<h4><a href="#a1">1</a></h4>
+<h4><a href="#a2">2</a></h4>
+<h4><a href="#a3">3</a></h4>
+<h4><a href="#b1">Bonus 1</a></h4>
+<h4><a href="#b2">Bonus 2</a></h4>
+<br/><br/>
+<p><i>By: Umar Aftab<br/>
+<a href="mailto:u3aftab@gmail.com">
+u3aftab@gmail.com</i></a>
+
+</h3></div> 
+<div id="content">
+
+<h4><a name="a1">How many ping pong balls would it take to fill an average-sized school bus? Describe each step in your thought process.</a></h4>
+<p>The dimensions of a Z-84D class large school bus are obtained from a report titled <a href=” http://ntl.bts.gov/lib/10000/10600/10694/MBTC1054-1.pdf”> “Large School Bus Design Vehicle Dimensions” </a> sponsored by the Arkansas State Highway and Transportation Department.  The width, length and height are 244cm, 1207cm and 328cm, respectively.  The radius of a ping pong ball is taken to be 2cm.</p>
+<p>Gauss <a href=”http://mathworld.wolfram.com/SpherePacking.html”> proved</a> that the highest density amongst all possible lattice packings possible is &#960/&radic;<span style="text-decoration:overline;">18</span>=D.  The volume enclosed by a sphere of radius r is V= (4/3) &#960 r<sup>3</sup>.  Thus, in the limit as volume approaches infinity, the maximum number of ping pong balls that can be fit into a volume approaches (<i>volume of space enclosed</i> x <i>D</i>)/<i>volume of 1 ping pong ball</i>.  This gives us an upperbound on the number of ping pong balls that can be fit into a seat-less bus with the above dimensions:<br/>
+((244x1207x328) x D)/((4/3) &#960 2<sup>3</sup>) = 3018707/ &radic;<span style="text-decoration:overline;">2</span> &#8776 2134548 balls. </p>
+<p> A more realistic approximation is afforded by additionally considering the volume taken up by seats and considering the contribution of fixtures (such as strobe lights, the protrusion from window fixtures, rear wheel bases, air conditioner, etc.).  The size of bus seats is taken to be the following: 30cmx62.5cmx10cm for the seat and 62.5cmx62.5cmx10cm for the back rest.  It is assumed that there are 32 such seats.  To this, a volume of 50cmx50cmx50cm is added to approximate the contribution of additional fixtures and the deviation from the value in the limit that would result from a slightly imperfect packing in a finite space of this order of magnitude.  Subtracting these values from the above yields: <br/>
+((244x1207x328-[(30x62.5x10+62.5x62.5x10)x32+50<sup>3</sup>]) x D)/((4/3) &#960 2<sup>3</sup>) &#8776 2090906 balls &#8776 2 million balls. </p>
+<p>So, about 2 million ping pong balls can be fit into a school bus (model Z-84D) filling all the space.</p>
+
+
+<hr/>
+<h4><a name="a2"> Create a liquid layout with HTML, CSS, and Javascript. This layout must support the following resolutions: <b>1024x768</b>, <b>1680x1050</b>. Explain why you would use a liquid layout.</a></h4>
+<p> This webpage (that is, the page you are viewing right now) should be viewable in both of the above specified resolutions.  I took the meaning of the resolution to mean that that the the file would extend to fill the full area of the client's viewport under each resolution.</p>
+<p> One would use a liquid layout so that a webpage can be viewed without gaps appearing in the layout, columns breaking or introducing funny indentations in the text formatting.  A liquid layout has the advantage that it can fit viewports of different resolutions appropriately without ruining the formatting of the content.  Furthermore, designing the liquid layout forces the designer to consider factors like the appearance of the webpage on a smartphone or tablet and the functionality of the menu columns and rows.  Additionally, a liquid layout allows the client to view other applications on the screen in addition to the web browser without messing up the usability and layout of the webpage being viewed in the web browser.  In conclusion, liquid layouts make webpages more accessible.  </p>
+<hr/>
+
+
+<h4><a name="a3">You own a license plate manufacturing company. Write a program that takes a population and determines the <b>simplest pattern</b> that will produce enough unique plates. Since all the plates that match the pattern will be generated, find the pattern that produces the <b>least excess plates</b>. Use a combination of letters (A-Z) and numbers (0-9).</a></h4>
+<p>This problem can be interpreted in a number of different ways depending on how ‘simplest pattern’ and ‘least excess plates’ is understood.  In generating a pattern and calculating the permutations possible, there are three numbers that are important: 10, 26 and 36 – ‘number’; ‘letter’; ‘letter <u>or</u> number’.  In a permutation where more than 1 of these numbers is multiplied (10x26 or 26x36x10, but not 26x26), the spot in the pattern template where each ‘letter’, ‘number’ or ‘letter or number’ appears can be switched around (10x26=26x10, 26x36x10=26x10x36=36x10x26=36x26x10=10x26x36=10x36x26).  So while the pattern generator will output “1 spot for number, 1 spot for letter or number” for a population of 360, the order in which these appears (‘number’ first  and ‘letter or number’ second or ‘letter or number’ first and ‘number’ second) still needs to decided.  The order however, does not have bearing on the amount of excess plates produced or the output of the pattern generator.  </p>
+<p>Moving beyond the two examples that are provided, consider generating a pattern for a population of 100.  Two spots for numbers, would seem appropriate; 10 number in each spot with a total of 10<sup>2</sup> spots, leaving 0 excess plates.  However, a scrutiny of the interpretation of ‘simple’ and ‘least excess’ demonstrates that this is not obvious and may not always be the optimal solution.  For a population of 1296(=36<sup>2</sup>), two spots, in each of which a ‘letter or number’ could appear would produce 0 excess plates; this pattern is both simple, and produces the least excess plates.  Now, consider finding the ‘simplest ‘pattern’ producing the least excess plates for a set population that is somewhere in the range [937, 1296].  Note: 937=26x36+1 and 1296=36<sup>2</sup>.  For this range the <b>simplest pattern</b> would be two spots.  In one spot only a letter appears, in the other spots a letter or a number can appear (26x36).  The excess plates would be the actual given population subtracted from 1296.  However, for a population in the range [937, 1000] a pattern that would produce the <b>least excess plates</b> would be three spots, where a number appears in each spot (10x10x10).  Thus, depending on how ‘simple’ and ‘least excess’ are interpreted, and which is given priority, different patterns can produced for the same population.</p>
+<p> Given this caveat, in the algorithm used the pattern generator below, ‘simple’ is given priority over ‘least excess’ and ‘simple’ is interpreted as the pattern that requires the least number of spots for a character and ‘least excess’ is interpreted as the plates that are left over when all permutations of such a pattern are produced.  Furthermore, to ensure that patterns produced for a population of less than a 1000 and patterns produced for populations that are orders of magnitude larger are <b>consistent</b>, it is assumed that all the that individual spots in a pattern will be maximized so that a ‘number or letter’ are permitted to appear in that spot – the algorithm produces the pattern in which the power of the 36 in the permutation is maximized.  By ‘consistent’, I mean, for example, that even though for numbers in the range [101, 260] two spots, one where only a ‘number’ appears and one where only a ‘letter’ appears (10x26) is the simplest and produces the least excess plates, this pattern will not be outputted.  Instead, a two spot pattern, one where only a ‘number’ can appear and one where a ‘letter or number’ can appear (10x36) will be outputted by the algorithm.</p>
+
+
+<form name="Platecalculator" method="post">
+	<p>
+	Population: <input type="text"  name="popn" size="10">
+	<input type="button" value="Calculate Pattern" name="calcbutton" onClick="myfunction(this.form.popn.value, this.form)">
+	</p>
+	<h4>Pattern: </h4>
+	<p>Spots for number or letter= <input type="text" name="numlet" size="2" readonly="readonly"></p>
+	<p>Spots for just numbers=<input type="text" name="justnum" size="2" readonly="readonly"></p>
+	<p>Spots of just letters=<input type="text" name="justlet" size="2" readonly="readonly"></p>
+	<br/> 
+	<p>Total Plates=<input type="text" name="total" size="10" readonly="readonly"></p>
+	<p>Excess Plates=<input type="text" name="excess" size="2" readonly="readonly"></p>
+
+</form>
+
+<hr/>
+
+<h4><a name="b1">Bonus 1</a></h4>
+<p>A video of me is attached to the email linking to my github account.</p>
+
+<hr/>
+
+<h4><a name="b2">Bonus 2</a></h4>
+<p>An in-progress html file of a programatically controlled AI game is also in my Code Foo git repository. The imlementation is far from complete.</p>
+</div>
+<div id="space"></div>
+
+
+</body>
+</html>
